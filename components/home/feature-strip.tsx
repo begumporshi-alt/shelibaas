@@ -1,0 +1,101 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { EditableText } from '@/components/admin/editable-text';
+
+export function FeatureStrip() {
+  const features = [
+    { icon: '✦', titleKey: 'feature_1_title', titleFallback: 'Free Shipping', descKey: 'feature_1_desc', descFallback: 'On orders over 5,000 ৳' },
+    { icon: '◈', titleKey: 'feature_2_title', titleFallback: 'Easy Returns', descKey: 'feature_2_desc', descFallback: '7-day return policy' },
+    { icon: '✧', titleKey: 'feature_3_title', titleFallback: 'Secure Payments', descKey: 'feature_3_desc', descFallback: 'Visa, bKash, Nagad, COD' },
+    { icon: '❋', titleKey: 'feature_4_title', titleFallback: 'Curated with Intention', descKey: 'feature_4_desc', descFallback: 'Handpicked from trusted designers' },
+  ];
+
+  return (
+    <section className="border-y border-border bg-background">
+      <div className="container-luxury">
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
+          {features.map((f, i) => (
+            <motion.div
+              key={f.titleKey}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="flex items-center gap-3 px-4 py-6"
+            >
+              <span className="text-gold-500 text-2xl shrink-0">{f.icon}</span>
+              <div>
+                <p className="font-medium text-sm">
+                  <EditableText contentKey={f.titleKey} fallback={f.titleFallback} as="span" />
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  <EditableText contentKey={f.descKey} fallback={f.descFallback} as="span" />
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function EditorialSplit() {
+  return (
+    <section className="py-24 bg-background">
+      <div className="container-luxury">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="relative aspect-[4/5] overflow-hidden"
+          >
+            <img
+              src="https://images.pexels.com/photos/14284143/pexels-photo-14284143.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="The Libaas Gallery curated collection"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col justify-center"
+          >
+            <p className="text-gold-600 text-xs uppercase tracking-[0.3em] mb-4">
+              The Curation
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl mb-6 text-balance">
+              Every Piece, <br /> Chosen with Purpose
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              The Libaas Gallery is Bangladesh's premium curated fashion destination.
+              We handpick the finest pieces from trusted designers, brands, and
+              independent boutiques — so you can discover exceptional fashion all in
+              one place.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-8">
+              From luxury pret to handwoven sarees, every outfit in our gallery is
+              selected for quality, craftsmanship, and timeless style. We do the
+              searching so you can focus on the wearing.
+            </p>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider hover:text-gold-600 transition-colors group w-fit"
+            >
+              Why The Libaas
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
