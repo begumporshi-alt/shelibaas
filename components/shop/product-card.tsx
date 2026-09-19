@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Heart } from 'lucide-react';
 import type { Product } from '@/lib/types';
 import { formatBDT, calculateDiscount } from '@/lib/format';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useAuth } from '@/lib/auth-context';
 import { toast } from 'sonner';
@@ -22,6 +22,14 @@ export function ProductCard({ product }: { product: Product }) {
   const imageUrl = primaryImage?.url || product.product_images?.[0]?.url || '';
   const hoverImageUrl = secondaryImage?.url || imageUrl;
   const discount = calculateDiscount(product.price, product.compare_price);
+
+  // Preload hover image to prevent flicker on first hover
+  useEffect(() => {
+    if (hoverImageUrl && hoverImageUrl !== imageUrl) {
+      const img = new Image();
+      img.src = hoverImageUrl;
+    }
+  }, [hoverImageUrl, imageUrl]);
 
   const toggleWishlist = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -52,6 +60,7 @@ export function ProductCard({ product }: { product: Product }) {
         <img
           src={hovered ? hoverImageUrl : imageUrl}
           alt={product.name}
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
 

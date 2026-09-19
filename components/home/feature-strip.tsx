@@ -56,8 +56,9 @@ export function EditorialSplit() {
             className="relative aspect-[4/5] overflow-hidden"
           >
             <img
-              src="https://images.pexels.com/photos/14284143/pexels-photo-14284143.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              src="https://images.pexels.com/photos/14284143/pexels-photo-14284143.jpeg?auto=compress&cs=tinysrgb&w=900"
               alt="The Libaas Gallery curated collection"
+              loading="lazy"
               className="w-full h-full object-cover"
             />
           </motion.div>

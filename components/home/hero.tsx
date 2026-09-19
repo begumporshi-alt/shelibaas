@@ -450,15 +450,16 @@ function MuseFigure({ image, hoveringCTA, lookMode }: { image: string; hoveringC
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="relative h-full w-full"
       >
-        <img
-          src={image}
-          alt="The Libaas Muse"
-          className="h-full w-full object-cover object-top rounded-lg"
-          style={{
-            maskImage: 'radial-gradient(ellipse 80% 90% at 50% 50%, black 60%, transparent 95%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 80% 90% at 50% 50%, black 60%, transparent 95%)',
-          }}
-        />
+                <img
+                  src={image}
+                  alt="The Libaas Muse"
+                  loading="eager"
+                  className="h-full w-full object-cover object-top rounded-lg"
+                  style={{
+                    maskImage: 'radial-gradient(ellipse 80% 90% at 50% 50%, black 60%, transparent 95%)',
+                    WebkitMaskImage: 'radial-gradient(ellipse 80% 90% at 50% 50%, black 60%, transparent 95%)',
+                  }}
+                />
 
         {/* Fabric shimmer overlay — gold embroidery catching light */}
         <motion.div

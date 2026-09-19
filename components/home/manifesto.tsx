@@ -18,8 +18,9 @@ export function Manifesto() {
     <section ref={ref} className="py-32 bg-ink-900 relative overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0 opacity-10">
         <img
-          src="https://images.pexels.com/photos/8426345/pexels-photo-8426345.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          src="https://images.pexels.com/photos/8426345/pexels-photo-8426345.jpeg?auto=compress&cs=tinysrgb&w=1600"
           alt=""
+          loading="lazy"
           className="w-full h-full object-cover"
         />
       </motion.div>

@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Search, User, Heart, Menu, X, Loader2, TrendingUp, LayoutDashboard } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useCart } from '@/lib/cart-context';
 import { useAuth } from '@/lib/auth-context';
 import { supabase } from '@/lib/supabase';
@@ -14,6 +15,7 @@ import { formatBDT } from '@/lib/format';
 
 const navLinks = [
   { href: '/shop', label: 'All' },
+  { href: '/shop/three-piece', label: 'Three Piece' },
   { href: '/shop/luxury-pret', label: 'Luxury Pret' },
   { href: '/shop/unstitched', label: 'Unstitched' },
   { href: '/shop/stitched', label: 'Stitched' },
@@ -33,6 +35,7 @@ type SearchResult = {
 
 export function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const { totalItems, setCartOpen } = useCart();
   const { user, profile, isAdmin } = useAuth();
   const [scrolled, setScrolled] = useState(false);
@@ -222,6 +225,7 @@ export function Navbar() {
 }
 
 function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const router = useRouter();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState(false);
@@ -267,7 +271,8 @@ function SearchOverlay({ open, onClose }: { open: boolean; onClose: () => void }
       setHighlighted((h) => Math.max(h - 1, 0));
     } else if (e.key === 'Enter' && highlighted >= 0 && results[highlighted]) {
       e.preventDefault();
-      window.location.href = `/product/${results[highlighted].slug}`;
+      router.push(`/product/${results[highlighted].slug}`);
+      onClose();
     }
   };
 
