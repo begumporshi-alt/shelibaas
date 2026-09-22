@@ -6,19 +6,18 @@ import { ShopHero } from '@/components/shop/shop-hero';
 export const revalidate = 3600;
 
 async function getData(categorySlug?: string) {
-  let productQuery = supabase
-    .from('products')
-    .select('*, category:categories(*), product_images(*), product_variants(*)')
-    .eq('is_active', true)
-    .order('is_featured', { ascending: false });
-
-  const { data: products } = await productQuery;
-
-  const { data: categories } = await supabase
-    .from('categories')
-    .select('*')
-    .eq('is_active', true)
-    .order('sort_order');
+  const [{ data: products }, { data: categories }] = await Promise.all([
+    supabase
+      .from('products')
+      .select('id, slug, name, price, compare_price, fabric, is_new_arrival, is_best_seller, is_featured, category:categories(slug, name), product_images(url, is_primary)')
+      .eq('is_active', true)
+      .order('is_featured', { ascending: false }),
+    supabase
+      .from('categories')
+      .select('id, slug, name, description, image_url')
+      .eq('is_active', true)
+      .order('sort_order'),
+  ]);
 
   let activeCategory: Category | undefined;
   if (categorySlug) {
@@ -26,8 +25,8 @@ async function getData(categorySlug?: string) {
   }
 
   return {
-    products: (products as Product[]) || [],
-    categories: (categories as Category[]) || [],
+    products: (products as unknown as Product[]) || [],
+    categories: (categories as unknown as Category[]) || [],
     activeCategory,
   };
 }

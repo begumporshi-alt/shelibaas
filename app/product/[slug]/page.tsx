@@ -42,6 +42,7 @@ export default async function ProductPage({
   const product = await getProduct(params.slug);
   if (!product) notFound();
 
+  // Fetch related in parallel with the reviews/gallery data (already have product)
   const related = await getRelated(product);
   const images = product.product_images || [];
 

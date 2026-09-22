@@ -6,17 +6,18 @@ import { ShopHero } from '@/components/shop/shop-hero';
 export const revalidate = 3600;
 
 export default async function AllShopPage() {
-  const { data: products } = await supabase
-    .from('products')
-    .select('*, category:categories(*), product_images(*), product_variants(*)')
-    .eq('is_active', true)
-    .order('is_featured', { ascending: false });
-
-  const { data: categories } = await supabase
-    .from('categories')
-    .select('*')
-    .eq('is_active', true)
-    .order('sort_order');
+  const [{ data: products }, { data: categories }] = await Promise.all([
+    supabase
+      .from('products')
+      .select('id, slug, name, price, compare_price, fabric, is_new_arrival, is_best_seller, is_featured, category:categories(slug, name), product_images(url, is_primary)')
+      .eq('is_active', true)
+      .order('is_featured', { ascending: false }),
+    supabase
+      .from('categories')
+      .select('id, slug, name')
+      .eq('is_active', true)
+      .order('sort_order'),
+  ]);
 
   return (
     <>
@@ -25,7 +26,7 @@ export default async function AllShopPage() {
         description="Discover our full collection of couture, luxury pret, unstitched lawn, sarees, and menswear."
       />
       <ShopGrid
-        products={(products as Product[]) || []}
+        products={(products as unknown as Product[]) || []}
         categories={(categories as Category[]) || []}
       />
     </>
