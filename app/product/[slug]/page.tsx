@@ -8,8 +8,19 @@ import { RelatedProducts } from '@/components/product/related-products';
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { notFound } from 'next/navigation';
+import { pageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
+
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const product = await getProduct(params.slug);
+  if (!product) return pageMetadata({ title: 'Product Not Found' });
+  return pageMetadata({
+    title: product.name,
+    description: `${product.name} — shop at Shelibaas, Bangladesh's curated fashion destination.`,
+    path: `/product/${params.slug}`,
+  });
+}
 
 async function getProduct(slug: string) {
   const { data } = await supabase

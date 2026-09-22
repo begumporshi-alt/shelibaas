@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Category } from '@/lib/types';
 
 export function CategoryCircles({ categories }: { categories: Category[] }) {
@@ -31,11 +32,12 @@ export function CategoryCircles({ categories }: { categories: Category[] }) {
               <Link href={`/shop/${cat.slug}`} className="group block">
                 <div className="relative aspect-square rounded-full overflow-hidden mb-4 bg-muted">
                   {cat.image_url && (
-                    <img
+                    <Image
                       src={cat.image_url}
                       alt={cat.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      fill
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   )}
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />

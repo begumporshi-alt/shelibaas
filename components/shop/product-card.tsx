@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ShoppingBag, Heart } from 'lucide-react';
 import type { Product } from '@/lib/types';
@@ -26,7 +27,7 @@ export function ProductCard({ product }: { product: Product }) {
   // Preload hover image to prevent flicker on first hover
   useEffect(() => {
     if (hoverImageUrl && hoverImageUrl !== imageUrl) {
-      const img = new Image();
+      const img = new window.Image();
       img.src = hoverImageUrl;
     }
   }, [hoverImageUrl, imageUrl]);
@@ -57,12 +58,15 @@ export function ProductCard({ product }: { product: Product }) {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
-        <img
-          src={hovered ? hoverImageUrl : imageUrl}
-          alt={product.name}
-          loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
+        {imageUrl && (
+          <Image
+            src={hovered ? hoverImageUrl : imageUrl}
+            alt={product.name}
+            fill
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+        )}
 
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5">

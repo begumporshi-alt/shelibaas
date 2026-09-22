@@ -16,16 +16,16 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'The Libaas Gallery — Couture & Pret Clothing',
+  title: 'Shelibaas — Couture & Pret Clothing',
   description:
-    "The Libaas Gallery — Bangladesh's premium curated fashion destination. Discover handpicked designer wear, luxury pret, sarees, and everyday elegance, all in one trusted gallery.",
-  keywords: ['libaas', 'clothing', 'couture', 'luxury pret', 'saree', 'sherwani', 'lawn', 'Bangladesh fashion'],
+    "Shelibaas — Bangladesh's premium curated fashion destination. Discover handpicked designer wear, luxury pret, sarees, and everyday elegance, all in one trusted gallery.",
+  keywords: ['shelibaas', 'clothing', 'couture', 'luxury pret', 'saree', 'sherwani', 'lawn', 'Bangladesh fashion'],
   icons: {
-    icon: '/Libaas_logo.png',
-    apple: '/Libaas_logo.png',
+    icon: '/Shelibaas_logo.png',
+    apple: '/Shelibaas_logo.png',
   },
   openGraph: {
-    title: 'The Libaas Gallery — Couture & Pret Clothing',
+    title: 'Shelibaas — Couture & Pret Clothing',
     description: 'Where heritage meets modern elegance. Shop couture, luxury pret, unstitched lawn, sarees and menswear.',
     type: 'website',
   },

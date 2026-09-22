@@ -52,10 +52,10 @@ export function AdminLayoutClient({ children }: { children: React.ReactNode }) {
         <div className="px-6 mb-8">
           <Link href="/admin" className="flex items-center gap-3">
             <div className="relative w-10 h-10 shrink-0">
-              <Image src="/Libaas_logo.png" alt="The Libaas Gallery" fill className="object-contain" />
+              <Image src="/Shelibaas_logo.png" alt="Shelibaas" fill className="object-contain" />
             </div>
             <div className="leading-tight">
-              <span className="font-serif text-base text-libaas-600 block">The Libaas</span>
+              <span className="font-serif text-base text-white block">Shel<span className="text-gold-500">ibaas</span></span>
               <span className="text-gold-500 text-xs uppercase tracking-[0.2em] block">Admin Panel</span>
             </div>
           </Link>
@@ -90,7 +90,7 @@ export function AdminLayoutClient({ children }: { children: React.ReactNode }) {
       <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-ink-900 text-white px-4 py-3 flex items-center justify-between">
         <Link href="/admin" className="flex items-center gap-2">
           <div className="relative w-8 h-8 shrink-0">
-            <Image src="/Libaas_logo.png" alt="The Libaas Gallery" fill className="object-contain" />
+            <Image src="/Shelibaas_logo.png" alt="Shelibaas" fill className="object-contain" />
           </div>
           <span className="font-serif text-base text-white">Admin</span>
         </Link>

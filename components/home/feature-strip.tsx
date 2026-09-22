@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { EditableText } from '@/components/admin/editable-text';
 
@@ -55,11 +56,12 @@ export function EditorialSplit() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="relative aspect-[4/5] overflow-hidden"
           >
-            <img
+            <Image
               src="https://images.pexels.com/photos/14284143/pexels-photo-14284143.jpeg?auto=compress&cs=tinysrgb&w=900"
-              alt="The Libaas Gallery curated collection"
-              loading="lazy"
-              className="w-full h-full object-cover"
+              alt="Shelibaas curated collection"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
             />
           </motion.div>
 
@@ -77,7 +79,7 @@ export function EditorialSplit() {
               Every Piece, <br /> Chosen with Purpose
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              The Libaas Gallery is Bangladesh's premium curated fashion destination.
+              Shelibaas is Bangladesh's premium curated fashion destination.
               We handpick the finest pieces from trusted designers, brands, and
               independent boutiques — so you can discover exceptional fashion all in
               one place.
@@ -91,7 +93,7 @@ export function EditorialSplit() {
               href="/about"
               className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider hover:text-gold-600 transition-colors group w-fit"
             >
-              Why The Libaas
+              Why Shelibaas
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>

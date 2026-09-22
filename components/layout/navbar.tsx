@@ -75,7 +75,7 @@ export function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-          isLight ? 'glass border-b border-border/50 py-2' : 'bg-transparent py-4'
+          isLight ? 'glass border-b border-border/50 py-2' : 'bg-transparent py-3'
         )}
       >
         <nav className="container-luxury flex items-center justify-between gap-4">
@@ -89,31 +89,30 @@ export function Navbar() {
           </button>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            <div className={cn('relative transition-all duration-300', isLight ? 'h-11 w-11' : 'h-12 w-12')}>
+          <Link href="/" className="flex items-center gap-2 shrink-0">
+            <div className={cn('relative transition-all duration-300', isLight ? 'h-9 w-9' : 'h-10 w-10')}>
               <Image
-                src="/Libaas_logo.png"
-                alt="The Libaas Gallery"
+                src="/Shelibaas_logo.png"
+                alt="Shelibaas"
                 fill
                 className="object-contain"
                 style={{ filter: isLight ? 'none' : 'drop-shadow(0 2px 8px rgba(0,0,0,0.4))' }}
                 priority
               />
             </div>
-            <div className={cn('hidden sm:block leading-tight', isLight ? 'text-foreground' : 'text-libaas-600')}>
-              <span className="font-serif text-base md:text-lg font-medium block">The Libaas</span>
-              <span className={cn('text-xs uppercase tracking-[0.2em] block', isLight ? 'text-gold-600' : 'text-gold-400')}>Gallery</span>
+            <div className={cn('hidden sm:block leading-tight', isLight ? 'text-foreground' : 'text-white')}>
+              <span className="font-serif text-base md:text-lg font-medium block">Shel<span className={isLight ? 'text-gold-600' : 'text-gold-400'}>ibaas</span></span>
             </div>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-6 xl:gap-7">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-5">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'text-sm font-medium tracking-wide transition-colors hover:text-gold-500',
+                  'text-[13px] font-medium tracking-wide transition-colors hover:text-gold-500',
                   isLight ? 'text-foreground/80' : 'text-white/80',
                   pathname === link.href && 'text-gold-500'
                 )}

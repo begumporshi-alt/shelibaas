@@ -26,7 +26,7 @@ export default function ShippingPage() {
             <div className="text-sm text-muted-foreground space-y-2 leading-relaxed">
               <p>We offer a 7-day return policy on all non-couture items. Products must be unworn, unwashed, and with all tags attached.</p>
               <p>Couture and made-to-measure pieces are non-returnable unless there is a manufacturing defect.</p>
-              <p>To initiate a return, contact us at hello@libaasgallery.com with your order number.</p>
+              <p>To initiate a return, contact us at hello@shelibaas.com with your order number.</p>
             </div>
           </section>
 

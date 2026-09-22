@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useCart } from '@/lib/cart-context';
 import { formatBDT } from '@/lib/format';
 
@@ -85,11 +86,15 @@ export function CartDrawer() {
                         onClick={() => setCartOpen(false)}
                         className="shrink-0"
                       >
-                        <img
-                          src={item.image_url}
-                          alt={item.name}
-                          className="w-20 h-24 object-cover rounded-md"
-                        />
+                        <span className="relative block w-20 h-24 shrink-0 overflow-hidden rounded-md">
+                          <Image
+                            src={item.image_url}
+                            alt={item.name}
+                            fill
+                            sizes="80px"
+                            className="object-cover"
+                          />
+                        </span>
                       </Link>
                       <div className="flex-1 min-w-0">
                         <Link

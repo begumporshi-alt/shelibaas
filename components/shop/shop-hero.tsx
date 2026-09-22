@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useRef } from 'react';
 import { useScroll, useTransform } from 'framer-motion';
 
@@ -23,15 +24,14 @@ export function ShopHero({
   return (
     <section ref={ref} className="relative h-[50vh] min-h-[400px] overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
-        {image ? (
-          <img src={image} alt={title} className="w-full h-full object-cover" />
-        ) : (
-          <img
-            src="https://images.pexels.com/photos/7676340/pexels-photo-7676340.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt={title}
-            className="w-full h-full object-cover"
-          />
-        )}
+        <Image
+          src={image || 'https://images.pexels.com/photos/7676340/pexels-photo-7676340.jpeg?auto=compress&cs=tinysrgb&w=1920'}
+          alt={title}
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
       </motion.div>
 
@@ -42,7 +42,7 @@ export function ShopHero({
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-gold-400 text-xs uppercase tracking-[0.3em] mb-4"
         >
-          The Libaas Gallery
+          Shelibaas
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

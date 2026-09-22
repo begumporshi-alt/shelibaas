@@ -2,8 +2,22 @@ import { supabaseServer as supabase } from '@/lib/supabase-server';
 import type { Product, Category } from '@/lib/types';
 import { ShopGrid } from '@/components/shop/shop-grid';
 import { ShopHero } from '@/components/shop/shop-hero';
+import { pageMetadata } from '@/lib/seo';
 
 export const revalidate = 3600;
+
+export async function generateMetadata({ params }: { params: { category?: string } }) {
+  const { data } = await supabase
+    .from('categories')
+    .select('name, description')
+    .eq('slug', params?.category || '')
+    .maybeSingle();
+  const name = (data as { name?: string } | null)?.name || 'Shop';
+  const description =
+    (data as { description?: string } | null)?.description ||
+    `Shop ${name} at Shelibaas — handpicked from trusted designers and brands.`;
+  return pageMetadata({ title: name, description, path: `/shop/${params?.category || ''}` });
+}
 
 async function getData(categorySlug?: string) {
   const [{ data: products }, { data: categories }] = await Promise.all([

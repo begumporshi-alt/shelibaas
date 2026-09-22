@@ -4,25 +4,34 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { toast } from 'sonner';
+import { supabase } from '@/lib/supabase';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      toast.success('Message sent! We will get back to you soon.');
-      setForm({ name: '', email: '', subject: '', message: '' });
-    }, 1000);
+    const { error } = await supabase.from('contact_messages').insert({
+      name: form.name.trim(),
+      email: form.email.trim(),
+      subject: form.subject.trim(),
+      message: form.message.trim(),
+    });
+    setLoading(false);
+    if (error) {
+      toast.error('Could not send your message. Please try again.');
+      return;
+    }
+    toast.success('Message sent! We will get back to you soon.');
+    setForm({ name: '', email: '', subject: '', message: '' });
   };
 
   const contactInfo = [
     { icon: MapPin, label: 'Address', value: 'Gulshan Avenue, Dhaka 1212, Bangladesh' },
     { icon: Phone, label: 'Phone', value: '+880 1700 000000' },
-    { icon: Mail, label: 'Email', value: 'hello@libaasgallery.com' },
+    { icon: Mail, label: 'Email', value: 'hello@shelibaas.com' },
   ];
 
   return (

@@ -1,6 +1,14 @@
 import { supabaseServer as supabase } from '@/lib/supabase-server';
 import type { Product, Category } from '@/lib/types';
 import { ShopGrid } from '@/components/shop/shop-grid';
+import { pageMetadata } from '@/lib/seo';
+
+export const metadata = pageMetadata({
+  title: 'Shop All Collections',
+  description:
+    'Shop three-piece ensembles, luxury pret, unstitched lawn, sarees, and menswear — handpicked from trusted designers and brands at Shelibaas.',
+  path: '/shop',
+});
 import { ShopHero } from '@/components/shop/shop-hero';
 
 export const revalidate = 3600;

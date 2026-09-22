@@ -57,7 +57,7 @@ CREATE TRIGGER site_content_updated_at
 
 -- Seed default content
 INSERT INTO site_content (key, value, content_type, page, label) VALUES
-  ('hero_eyebrow', 'The Libaas Gallery — Est. 2026', 'text', 'home', 'Hero Eyebrow'),
+  ('hero_eyebrow', 'Shelibaas — Est. 2026', 'text', 'home', 'Hero Eyebrow'),
   ('hero_title', 'Threads of Heritage', 'text', 'home', 'Hero Title'),
   ('hero_subtitle', 'Worn with grace, designed for distinction.', 'text', 'home', 'Hero Subtitle'),
   ('hero_cta_primary', 'Explore Collection', 'text', 'home', 'Hero Primary Button'),

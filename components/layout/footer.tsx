@@ -15,15 +15,14 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-5 group">
               <div className="relative w-12 h-12 rounded-full bg-white/5 p-0.5 group-hover:bg-white/10 transition-colors">
                 <Image
-                  src="/Libaas_logo.png"
-                  alt="The Libaas Gallery"
+                  src="/Shelibaas_logo.png"
+                  alt="Shelibaas"
                   fill
                   className="object-contain p-0.5"
                 />
               </div>
               <div className="leading-tight">
-                <span className="font-serif text-lg text-libaas-600 block">The Libaas</span>
-                <span className="text-gold-400 text-xs uppercase tracking-[0.2em] block">Gallery</span>
+                <span className="font-serif text-lg text-white block">Shel<span className="text-gold-400">ibaas</span></span>
               </div>
             </Link>
             <p className="text-sm leading-relaxed text-white/50 max-w-xs">
@@ -34,13 +33,13 @@ export function Footer() {
               />
             </p>
             <div className="flex gap-4 mt-6">
-              <a href="#" className="text-white/50 hover:text-gold-500 transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/shelibaas" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-gold-500 transition-colors" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="text-white/50 hover:text-gold-500 transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/shelibaas" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-gold-500 transition-colors" aria-label="Facebook">
                 <Facebook size={18} />
               </a>
-              <a href="mailto:hello@libaasgallery.com" className="text-white/50 hover:text-gold-500 transition-colors" aria-label="Email">
+              <a href="mailto:hello@shelibaas.com" className="text-white/50 hover:text-gold-500 transition-colors" aria-label="Email">
                 <Mail size={18} />
               </a>
             </div>
@@ -85,7 +84,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={16} className="text-gold-500 shrink-0" />
-                <span>hello@libaasgallery.com</span>
+                <span>hello@shelibaas.com</span>
               </li>
             </ul>
           </div>
@@ -93,7 +92,7 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-white/40">
-            © {new Date().getFullYear()} The Libaas Gallery. All rights reserved.
+            © {new Date().getFullYear()} Shelibaas. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-xs text-white/40">
             <span>We accept:</span>

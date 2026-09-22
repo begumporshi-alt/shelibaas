@@ -11,7 +11,7 @@ export default function FAQPage() {
     { q: 'How long does delivery take?', a: 'Inside Dhaka: 1-2 business days. Outside Dhaka: 2-4 business days. Some made-to-order pieces from our designers may take 2-3 weeks.' },
     { q: 'What payment methods do you accept?', a: 'We accept Cash on Delivery (COD), Visa/Mastercard, bKash, and Nagad. For bKash and Nagad, complete the payment and enter your transaction ID at checkout.' },
     { q: 'Can I return or exchange an item?', a: 'Yes, non-couture items can be returned within 7 days, provided they are unworn, unwashed, and have all tags attached. Couture and made-to-measure pieces are non-returnable unless defective.' },
-    { q: 'Do you offer custom tailoring?', a: 'Some of our designers offer made-to-measure options for formal and couture wear. Contact us at hello@libaasgallery.com and we will connect you with the right designer.' },
+    { q: 'Do you offer custom tailoring?', a: 'Some of our designers offer made-to-measure options for formal and couture wear. Contact us at hello@shelibaas.com and we will connect you with the right designer.' },
     { q: 'Are your products authentic?', a: 'Every piece in our gallery is sourced directly from trusted designers, brands, and boutiques. We stand behind the authenticity and quality of every item we present.' },
     { q: 'Do you ship internationally?', a: 'We currently ship within Bangladesh only. International shipping is coming soon — follow us on social media for updates.' },
   ];

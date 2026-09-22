@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 import type { ProductImage } from '@/lib/types';
@@ -32,7 +33,9 @@ export function ProductGallery({ images }: { images: ProductImage[] }) {
                 activeIndex === i ? 'border-gold-500' : 'border-transparent hover:border-border'
               }`}
             >
-              <img src={img.url} alt={img.alt_text || ''} className="w-full h-full object-cover" />
+              <span className="relative block w-full h-full">
+                <Image src={img.url} alt={img.alt_text || ''} fill sizes="80px" className="object-cover" />
+              </span>
             </button>
           ))}
         </div>
@@ -50,10 +53,13 @@ export function ProductGallery({ images }: { images: ProductImage[] }) {
             className="relative aspect-[3/4] overflow-hidden bg-muted rounded-lg cursor-zoom-in"
             onClick={() => setZoomed(true)}
           >
-            <img
+            <Image
               src={sorted[activeIndex].url}
               alt={sorted[activeIndex].alt_text || ''}
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+              priority
             />
             <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
               <ZoomIn size={18} className="text-ink-700" />

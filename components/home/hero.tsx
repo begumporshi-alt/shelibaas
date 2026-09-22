@@ -188,14 +188,14 @@ export function Hero() {
       {/* LEFT PANEL — Brand text and CTAs */}
       <motion.div
         style={{ opacity }}
-        className="absolute top-0 left-0 h-full w-full md:w-[42%] flex flex-col justify-center px-6 md:px-12 lg:px-16 z-20 pointer-events-none"
+        className="absolute top-0 left-0 h-full w-full md:w-[42%] flex flex-col justify-center pt-20 px-6 md:px-12 lg:px-16 z-20 pointer-events-none"
       >
         <div className="pointer-events-auto max-w-md">
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-gold-400 text-xs md:text-sm uppercase tracking-[0.3em] mb-5"
+            className="text-gold-400 text-[11px] md:text-xs uppercase tracking-[0.3em] mb-4"
           >
             <EditableText contentKey="hero_eyebrow" fallback="Bangladesh's Curated Fashion Destination" as="span" />
           </motion.p>
@@ -204,13 +204,13 @@ export function Hero() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05] text-shadow-luxury"
+            className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-[1.08] text-shadow-luxury"
           >
             <EditableText
               contentKey="hero_title"
               fallback="Discover Exceptional Fashion, Carefully Curated"
               as="span"
-              className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-[1.05]"
+              className="font-serif text-4xl md:text-5xl lg:text-6xl text-white leading-[1.08]"
             />
           </motion.h1>
 
@@ -218,7 +218,7 @@ export function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-white/60 text-sm md:text-base mt-6 max-w-sm leading-relaxed"
+            className="text-white/60 text-xs md:text-sm mt-5 max-w-sm leading-relaxed"
           >
             <EditableText
               contentKey="hero_subtitle"
@@ -231,22 +231,22 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-3 mt-8"
+            className="flex flex-col sm:flex-row gap-3 mt-7"
           >
             <Link
               href="/shop"
               onMouseEnter={() => setHoveringCTA(true)}
               onMouseLeave={() => setHoveringCTA(false)}
-              className="group inline-flex items-center gap-2 px-7 py-3.5 bg-white text-ink-900 text-sm font-medium uppercase tracking-wider hover:bg-gold-500 hover:text-white transition-all duration-300 rounded-sm"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 bg-white text-ink-900 text-xs font-medium uppercase tracking-wider hover:bg-gold-500 hover:text-white transition-all duration-300 rounded-sm"
             >
               <EditableText contentKey="hero_cta_primary" fallback="Explore Collection" as="span" />
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 text-white text-sm font-medium uppercase tracking-wider hover:border-gold-500 hover:text-gold-400 transition-all duration-300 rounded-sm backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/20 text-white text-xs font-medium uppercase tracking-wider hover:border-gold-500 hover:text-gold-400 transition-all duration-300 rounded-sm backdrop-blur-sm"
             >
-              <EditableText contentKey="hero_cta_secondary" fallback="Why The Libaas" as="span" />
+              <EditableText contentKey="hero_cta_secondary" fallback="Why Shelibaas" as="span" />
             </Link>
           </motion.div>
 
@@ -474,7 +474,7 @@ function MuseFigure({
       >
         <img
           src={image}
-          alt="The Libaas Muse"
+          alt="Shelibaas Muse"
           loading={priority ? 'eager' : 'lazy'}
           decoding={priority ? 'sync' : 'async'}
           className="h-full w-full object-cover object-top rounded-lg"

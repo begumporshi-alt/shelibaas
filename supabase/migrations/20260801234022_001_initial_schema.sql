@@ -1,6 +1,6 @@
 
 /*
-# The Libaas Gallery - Initial Schema
+# Shelibaas - Initial Schema
 
 ## Overview
 Full e-commerce schema for a clothing store with authentication, products, orders, payments, wishlists, reviews, and an admin CMS.

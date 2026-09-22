@@ -94,7 +94,7 @@ Deno.serve(async (req: Request) => {
     <!-- Header -->
     <div style="background: #1a1a1a; padding: 30px 40px; text-align: center;">
       <h1 style="color: #ffffff; font-size: 24px; margin: 0; font-weight: 400;">
-        The Libaas <span style="color: #c4a55a; font-style: italic;">Gallery</span>
+        Shel<span style="color: #c4a55a; font-style: italic;">ibaas</span>
       </h1>
       <p style="color: #c4a55a; font-size: 12px; text-transform: uppercase; letter-spacing: 3px; margin: 8px 0 0;">${type === "status_update" ? "Order Update" : "Order Confirmed"}</p>
     </div>
@@ -148,13 +148,13 @@ Deno.serve(async (req: Request) => {
       </div>
 
       <p style="color: #888; font-size: 13px; line-height: 1.6; margin-top: 32px; padding-top: 24px; border-top: 1px solid #eee;">
-        If you have any questions about your order, please contact us at hello@libaasgallery.com or reply to this email.
+        If you have any questions about your order, please contact us at hello@shelibaas.com or reply to this email.
       </p>
     </div>
 
     <!-- Footer -->
     <div style="background: #1a1a1a; padding: 24px 40px; text-align: center;">
-      <p style="color: #888; font-size: 12px; margin: 0;">The Libaas Gallery — Dhaka, Bangladesh</p>
+      <p style="color: #888; font-size: 12px; margin: 0;">Shelibaas — Dhaka, Bangladesh</p>
       <p style="color: #555; font-size: 11px; margin: 4px 0 0;">Artisanal heritage, reimagined for the modern wardrobe.</p>
     </div>
   </div>
@@ -182,7 +182,7 @@ Deno.serve(async (req: Request) => {
     //     method: "POST",
     //     headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
     //     body: JSON.stringify({
-    //       from: "The Libaas Gallery <orders@libaasgallery.com>",
+    //       from: "Shelibaas <orders@shelibaas.com>",
     //       to: [recipient],
     //       subject,
     //       html: emailHtml,

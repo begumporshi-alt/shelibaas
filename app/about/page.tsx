@@ -11,7 +11,7 @@ export default function AboutPage() {
       <section className="relative h-[60vh] min-h-[400px] overflow-hidden">
         <img
           src="https://images.pexels.com/photos/8886952/pexels-photo-8886952.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="The Libaas Gallery curated fashion"
+          alt="Shelibaas curated fashion"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60" />
@@ -47,7 +47,7 @@ export default function AboutPage() {
           >
             <h2 className="font-serif text-3xl mb-6">A Trusted Destination for Premium Fashion</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              The Libaas Gallery was founded with a simple mission: to become
+              Shelibaas was founded with a simple mission: to become
               Bangladesh's most trusted destination for discovering premium
               fashion. We don't just sell clothing — we curate collections,
               handpicking the finest pieces from designers, brands, and
